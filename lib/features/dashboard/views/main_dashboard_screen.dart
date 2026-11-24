@@ -18,7 +18,7 @@ class MainDashboardScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          '자산관리 AI 비서',
+          'moeda 가계부',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         actions: [
