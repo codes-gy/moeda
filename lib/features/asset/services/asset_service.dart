@@ -7,7 +7,7 @@ class AssetService {
       id: map['id'] as int,
       name: map['name'] as String,
       type: map['type'] as String,
-      amount: map['amount'] as double,
+      amount: (map['amount'] as num).toDouble(),
       createdAt: DateTime.parse(map['createdAt'] as String),
       updatedAt: DateTime.parse(map['updatedAt'] as String),
     );
@@ -18,7 +18,7 @@ class AssetService {
       'id': asset.id,
       'name': asset.name,
       'type': asset.type,
-      'amount': asset.amount,
+      'amount': asset.amount.round(), // 원 단위 INTEGER로 저장
       'createdAt': asset.createdAt.toIso8601String(),
       'updatedAt': asset.updatedAt.toIso8601String(),
     };

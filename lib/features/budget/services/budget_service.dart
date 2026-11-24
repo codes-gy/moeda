@@ -6,7 +6,7 @@ class BudgetService {
     return Budget(
       id: map['id'] as int,
       yearMonth: map['yearMonth'] as String,
-      amount: map['amount'] as double,
+      amount: (map['amount'] as num).toDouble(),
       createdAt: DateTime.parse(map['createdAt'] as String),
       updatedAt: DateTime.parse(map['updatedAt'] as String),
     );
@@ -16,7 +16,7 @@ class BudgetService {
     return {
       'id': budget.id,
       'yearMonth': budget.yearMonth,
-      'amount': budget.amount,
+      'amount': budget.amount.round(), // 원 단위 INTEGER로 저장
       'createdAt': budget.createdAt.toIso8601String(),
       'updatedAt': budget.updatedAt.toIso8601String(),
     };

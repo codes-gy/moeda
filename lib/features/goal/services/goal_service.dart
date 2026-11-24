@@ -6,8 +6,8 @@ class GoalService {
     return Goal(
       id: map['id'] as int,
       title: map['title'] as String,
-      targetAmount: map['targetAmount'] as double,
-      currentAmount: map['currentAmount'] as double,
+      targetAmount: (map['targetAmount'] as num).toDouble(),
+      currentAmount: (map['currentAmount'] as num).toDouble(),
       createdAt: DateTime.parse(map['createdAt'] as String),
       updatedAt: DateTime.parse(map['updatedAt'] as String),
     );
@@ -17,8 +17,8 @@ class GoalService {
     return {
       'id': goal.id,
       'title': goal.title,
-      'targetAmount': goal.targetAmount,
-      'currentAmount': goal.currentAmount,
+      'targetAmount': goal.targetAmount.round(), // 원 단위 INTEGER로 저장
+      'currentAmount': goal.currentAmount.round(),
       'createdAt': goal.createdAt.toIso8601String(),
       'updatedAt': goal.updatedAt.toIso8601String(),
     };

@@ -15,7 +15,7 @@ class LedgerService {
   Map<String, Object?> _toMap(Ledger ledger) {
     return {
       'id': ledger.id,
-      'amount': ledger.amount,
+      'amount': ledger.amount.round(), // 원 단위 INTEGER로 저장
       'title': ledger.title,
       'date': ledger.date.toIso8601String(),
       'categoryId': ledger.categoryId,

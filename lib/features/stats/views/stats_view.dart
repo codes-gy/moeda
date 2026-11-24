@@ -1,15 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/utils/currency_format.dart';
 import '../controllers/stats_provider.dart';
-
-String _formatWon(num amount) {
-  final rounded = amount.abs().toInt();
-  return rounded.toString().replaceAllMapped(
-        RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-        (Match m) => '${m[1]},',
-      );
-}
 
 const _categoryColors = [
   Color(0xFF2563EB),
@@ -120,7 +113,7 @@ class StatsView extends ConsumerWidget {
           children: [
             Text(item.category.name, style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14)),
             Text(
-              '₩ ${_formatWon(item.amount)} (${(item.ratio * 100).toStringAsFixed(0)}%)',
+              '₩ ${formatWon(item.amount)} (${(item.ratio * 100).toStringAsFixed(0)}%)',
               style: const TextStyle(color: Colors.grey, fontSize: 12),
             ),
           ],
