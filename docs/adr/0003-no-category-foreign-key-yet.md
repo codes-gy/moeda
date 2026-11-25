@@ -1,5 +1,5 @@
 ---
-status: accepted (#2에서 대체 예정)
+status: accepted
 ---
 
 # `ledgers.categoryId`에 외래 키를 걸지 않는다(카테고리 소프트 삭제 전까지)
